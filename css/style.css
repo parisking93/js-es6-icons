@@ -3,3 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container {
+    height: 100vh;
+}
+header nav {
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    background-color: aqua;
+}
+main {
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.icon {
+    width: calc(100% / 5 - 10px);
+    height: 50px;
+    background-color: grey;
+}
