@@ -104,16 +104,18 @@ const icons = [
 //   Milestone 1 Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
 
-icons.forEach((elemane) => {
+icons.forEach((element) => {
+    const {name,prefix,type,family} = element;
     document.getElementById('icons-container').innerHTML +=
     `
     <div class="icon">
         <div class="icon_inside">
-            <i class="fas fa-cat"></i>
-            <h4>cat</h4>
+            <i class= '${family} ${prefix}${name}'></i>
+            <h4>${name}</h4>
         </div>
     </div>
     `
+    console.log(`${prefix}${type} ${family}`);
 })
 
 

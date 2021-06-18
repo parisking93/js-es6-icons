@@ -12,23 +12,31 @@ header nav {
     line-height: 70px;
     background-color: aqua;
 }
-main {
+main .container-main{
     height: calc(100vh - 110px);
-    overflow-y: auto;
+    overflow-y: scroll;
     display: flex;
-    justify-content: space-evenly;
-    padding-top: 20px;
     background-color: lightgray;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .icon {
     width: calc(100% / 5 - 20px);
     background-color: white;
     font-size: 20px;
-    height: 100px;
+    height: 80px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.icon .icon_inside {
+    text-align: center;
+    
+    
+}
+.icon h4 {
+    text-transform: uppercase;
 }
