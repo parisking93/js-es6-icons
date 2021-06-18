@@ -104,21 +104,66 @@ const icons = [
 //   Milestone 1 Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
 
-icons.forEach((element) => {
+// icons.forEach((element) => {
+//     const {name,prefix,type,family} = element;
+//     document.getElementById('icons-container').innerHTML +=
+//     `
+//     <div class="icon">
+//         <div class="icon_inside">
+//             <i class= '${family} ${prefix}${name}'></i>
+//             <h5>${name.toUpperCase()}</h5>
+//         </div>
+//     </div>
+//     `
+// });
+
+// Milestone 2 Coloriamo le icone per tipo
+
+const iconeColorate = icons.map((element) => {
     const {name,prefix,type,family} = element;
+
+
+    if (type == 'user') {
+        return {
+            name,
+            prefix,
+            type,
+            family,
+            colore : 'red'
+        }
+    } else if (type == 'animal') {
+        return {
+            name,
+            prefix,
+            type,
+            family,
+            colore : 'blue'
+        }
+    } else {
+        return {
+            name,
+            prefix,
+            type,
+            family,
+            colore : 'white'
+        }
+
+    }
+
+});
+
+iconeColorate.forEach((element) => {
+    const {name,prefix,type,family,colore} = element;
     document.getElementById('icons-container').innerHTML +=
     `
-    <div class="icon">
+    <div class="icon" style ='background-color : ${colore}'>
         <div class="icon_inside">
             <i class= '${family} ${prefix}${name}'></i>
-            <h4>${name}</h4>
+            <h5>${name.toUpperCase()}</h5>
         </div>
     </div>
     `
-    console.log(`${prefix}${type} ${family}`);
-})
-
-
+});
 
 
 
