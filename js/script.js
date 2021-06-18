@@ -118,6 +118,7 @@ const iconeColorate = icons.map((element) => {
 
 //   Milestone 1 Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 const show = (array) => {
+  document.getElementById('icons-container').innerHTML = '';
   array.forEach((element) => {
     const {name,prefix,type,family,colore} = element;
     document.getElementById('icons-container').innerHTML +=
@@ -151,6 +152,19 @@ iconeColorate.forEach((element) => {
       ;
   }
 });
+// al camabiare della  select mostro le icone per tipo 
+const select = document.getElementById('seleziona');
+select.addEventListener('change', function () {
+  const selezionato = select.value;
+  const iconFiltrateTipo = iconeColorate.filter((element) => {
+    return element.type == selezionato;
+  })
+  show(iconFiltrateTipo);
+  if (selezionato == 'all') {
+    show(iconeColorate)
+  }
+});
+
 
 
 
