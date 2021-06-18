@@ -147,7 +147,6 @@ iconeColorate.forEach((element) => {
     document.getElementById('seleziona').innerHTML += 
       ` 
         <option value="${type}">${type}</option>
-
       `
       ;
   }
@@ -158,10 +157,10 @@ select.addEventListener('change', function () {
   const selezionato = select.value;
   const iconFiltrateTipo = iconeColorate.filter((element) => {
     return element.type == selezionato;
-  })
+  });
   show(iconFiltrateTipo);
   if (selezionato == 'all') {
-    show(iconeColorate)
+    show(iconeColorate);
   }
 });
 
