@@ -3,8 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-.container {
-    height: 100vh;
+.none {
+    display: none;
+}
+.show {
+    display: block;
 }
 /* nav  */
 h1 {
@@ -40,6 +43,8 @@ main .container-main{
     padding: 20px;
     max-width: 1430px;
     margin: auto;
+    position: relative;
+    align-items: flex-start;
 }
 
 .icon {
@@ -53,11 +58,33 @@ main .container-main{
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    border: 1px solid black;
-    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
 
 }
 .icon .icon_inside {
     text-align: center;
 }
+.appeare {
+    transform: scale(1.5);
+    margin-top: 40px;
+
+}
 /* fine main  */
+
+.icon:hover {
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4) inset;
+    cursor: pointer;
+}
+.appeare:hover {
+    cursor: pointer;
+}
+.animated {
+    animation : appeare 1s linear 1;
+}
+
+@keyframes appeare {
+    0% {opacity: 0;}
+    50%{opacity: 0;}
+    100% {opacity: 1;}
+}

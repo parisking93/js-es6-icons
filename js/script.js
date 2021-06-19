@@ -116,24 +116,28 @@ const iconeColorate = icons.map((element) => {
 
 });
 
+
 //   Milestone 1 Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 const show = (array) => {
   document.getElementById('icons-container').innerHTML = '';
-  array.forEach((element) => {
+
+  array.forEach((element,index) => {
     const {name,prefix,type,family,colore} = element;
     document.getElementById('icons-container').innerHTML +=
     `
-    <div class="icon"'>
+    <div class="icon" id="bo">
         <div class="icon_inside">
             <i class= '${family} ${prefix}${name}' style ='color : ${colore}'></i>
-            <h5>${name.toUpperCase()}</h5>
+            <h5 class='nome'>${name.toUpperCase()}</h5>
         </div>
     </div>
-    `
-});
+    `;
+  });
 
 };
+
 show(iconeColorate);
+
 
 
 // Milestone 3 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
@@ -163,6 +167,37 @@ select.addEventListener('change', function () {
     show(iconeColorate);
   }
 });
+
+// dichiaro il contenitore su cui voglio ascoltare gli eventi
+let parent = document.getElementById('icons-container');
+
+// funzione show il risultato in baso all'evento 
+const showselect = (event)=> {
+  parent.innerHTML = '';
+  parent.innerHTML = event + '<div class ="appeare animated"> <i  class="fas fa-arrow-left"></i> </div>';
+}
+
+const selectIcon = (event)=> {
+  // raccologo  tutti gli eventi possibili nel container main
+  if (event.target.className == 'icon') {
+    showselect(event.target.outerHTML); 
+
+  } else if (event.target.className == 'fas fa-arrow-left') {
+    parent.innerHTML = '';
+    show(iconeColorate);
+  } else if (event.target.className == "icon_inside"){
+    let parents = event.target.parentElement;
+    showselect(parents.outerHTML);
+  } else if (event.target.className == "container-main"){
+  } else {
+    console.log(event.target);
+    let parents = event.target.parentElement.parentElement;
+    showselect(parents.outerHTML);
+  }
+  event.stopPropagation();
+}
+// Add eventListener to parent
+parent.addEventListener('click', selectIcon, false);
 
 
 
