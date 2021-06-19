@@ -125,7 +125,7 @@ const show = (array) => {
     const {name,prefix,type,family,colore} = element;
     document.getElementById('icons-container').innerHTML +=
     `
-    <div class="icon" id="bo">
+    <div class="icon">
         <div class="icon_inside">
             <i class= '${family} ${prefix}${name}' style ='color : ${colore}'></i>
             <h5 class='nome'>${name.toUpperCase()}</h5>
@@ -174,7 +174,7 @@ let parent = document.getElementById('icons-container');
 // funzione show il risultato in baso all'evento 
 const showselect = (event)=> {
   parent.innerHTML = '';
-  parent.innerHTML = event + '<div class ="appeare animated"> <i  class="fas fa-arrow-left"></i> </div>';
+  parent.innerHTML = event + '<div class="description animated"></div> <div class ="appeare animated">  <i  class="fas fa-arrow-left"></i> </div>';
 }
 
 const selectIcon = (event)=> {
