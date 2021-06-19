@@ -221,6 +221,8 @@ const selectIcon = (event)=> {
   console.log(event);
   // raccologo  tutti gli eventi possibili nel container main
   if (event.target.className == 'icon') {
+    event.target.className ='icon appeare2 animated';
+    console.log(event.target.outerHTML);
     showselect(event.target.outerHTML);
     showdes(event,iconeColorate);
 
@@ -229,13 +231,15 @@ const selectIcon = (event)=> {
     show(iconeColorate);
   } else if (event.target.className == "icon_inside"){
     let parents = event.target.parentElement;
+    parents.className = 'icon appeare2 animated';
     showselect(parents.outerHTML);
     showdes(event,iconeColorate);
     
-  } else if (event.target.className == "container-main" || event.target.className == "description animated" || event.target.className == "last-node"){
+  } else if (event.target.className == "container-main" || event.target.className == "description animated" || event.target.className == "last-node" || event.target.className == "icon appeare2 animated"){
   } else {
     console.log(event.target);
     let parents = event.target.parentElement.parentElement;
+    parents.className = 'icon appeare2 animated';
     showselect(parents.outerHTML);
     showdesSmall(event,iconeColorate);
   }

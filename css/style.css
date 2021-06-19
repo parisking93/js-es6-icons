@@ -60,6 +60,7 @@ main .container-main{
     margin-top: 40px;
     box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4);
     transition: all 0.3s ease;
+    margin-right:5px ;
 
 }
 .description {
@@ -67,7 +68,7 @@ main .container-main{
     background-color: white;
     border-radius: 10px;
     margin-top: 40px;
-    transform: translate(-25%);
+    /* transform: translate(-25%); */
     box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.4);
     transition: all 0.3s ease;
     padding: 20px;
@@ -81,6 +82,10 @@ main .container-main{
     transform: scale(1.5);
     margin-top: 40px;
 }
+.appeare2 {
+    transform: scale(1.5);
+    margin: 50px;
+}
 /* fine main  */
 
 .icon:hover {
@@ -91,14 +96,16 @@ main .container-main{
     cursor: pointer;
 }
 .animated {
-    animation : appeare 1s linear 1;
+    animation : appeare 0.3s linear 1;
 }
-.animated_fast {
-    animation : appeare 0.5s linear 1;
-}
-
 @keyframes appeare {
     0% {opacity: 0;}
     50%{opacity: 0;}
     100% {opacity: 1;}
+}
+/* media query  */
+@media (min-width : 980px) {
+    .description {
+        transform: translate(-25%);
+    }
 }
