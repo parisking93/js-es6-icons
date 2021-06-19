@@ -189,8 +189,8 @@ const showdes = (event,array) => {
   });
   document.querySelector('.description').innerHTML = 
   `
-    <h2 style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
-    <p style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
+    <h2 class="last-node" style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
+    <p class="last-node" style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
   `;
   
 }
@@ -208,10 +208,9 @@ const showdesSmall = (event,array) => {
   });
   document.querySelector('.description').innerHTML = 
   `
-    <h2 style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
-    <p style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
+    <h2 class="last-node" style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
+    <p class="last-node" style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
   `;
-  
 }
 // FINE FUNZIONI PER MOSTRARE LA DESCRIZIONE 
 
@@ -233,13 +232,12 @@ const selectIcon = (event)=> {
     showselect(parents.outerHTML);
     showdes(event,iconeColorate);
     
-  } else if (event.target.className == "container-main" || event.target.className == "description animated" ){
+  } else if (event.target.className == "container-main" || event.target.className == "description animated" || event.target.className == "last-node"){
   } else {
     console.log(event.target);
     let parents = event.target.parentElement.parentElement;
     showselect(parents.outerHTML);
     showdesSmall(event,iconeColorate);
-
   }
   
   event.stopPropagation();
