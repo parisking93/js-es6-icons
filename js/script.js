@@ -188,7 +188,7 @@ const selectIcon = (event)=> {
   } else if (event.target.className == "icon_inside"){
     let parents = event.target.parentElement;
     showselect(parents.outerHTML);
-  } else if (event.target.className == "container-main"){
+  } else if (event.target.className == "container-main" || event.target.className == "description animated" ){
   } else {
     console.log(event.target);
     let parents = event.target.parentElement.parentElement;
