@@ -105,17 +105,17 @@ const icons = [
 // Milestone 2 Coloriamo le icone per tipo
 
 const iconeColorate = icons.map((element) => {
-    const {type} = element;
+    const {type,name} = element;
     let colore = 'orange';
     if (type == 'user') {
         colore = 'red';
     } else if (type == 'animal') {
         colore = 'blue'
     } 
+
     return {...element,colore}
 
 });
-
 
 //   Milestone 1 Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 const show = (array) => {
@@ -135,10 +135,7 @@ const show = (array) => {
   });
 
 };
-
 show(iconeColorate);
-
-
 
 // Milestone 3 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 
@@ -176,11 +173,57 @@ const showselect = (event)=> {
   parent.innerHTML = '';
   parent.innerHTML = event + '<div class="description animated"></div> <div class ="appeare animated">  <i  class="fas fa-arrow-left"></i> </div>';
 }
+// fine funzione show il risultato 
+
+// FUNZIONI PER MOSTRARE LA DESCRIZIONE 
+const showdes = (event,array) => {
+  let nomeIcona = event.target.querySelector('.nome').innerText;
+  const checkNomeIcona = [];
+  array.forEach(element => {
+    const {name,colore} = element;
+    console.log(typeof nomeIcona, typeof name.toUpperCase());
+    if (nomeIcona == name.toUpperCase()) {
+      checkNomeIcona.push(name.toUpperCase(),colore);
+    };
+
+  });
+  document.querySelector('.description').innerHTML = 
+  `
+    <h2 style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
+    <p style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
+  `;
+  
+}
+// SECONDA FUNZIONE PER MOSTRARE LA DESCRIZIONE 
+const showdesSmall = (event,array) => {
+  let nomeIcona = event.target.parentElement.querySelector('.nome').innerText;
+  const checkNomeIcona = [];
+  array.forEach(element => {
+    const {name,colore} = element;
+    console.log(typeof nomeIcona, typeof name.toUpperCase());
+    if (nomeIcona == name.toUpperCase()) {
+      checkNomeIcona.push(name.toUpperCase(),colore);
+    };
+
+  });
+  document.querySelector('.description').innerHTML = 
+  `
+    <h2 style = 'margin : 10px 0;'> ${checkNomeIcona[0]} </h2> 
+    <p style = 'color : ${checkNomeIcona[1]}'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam quo nobis, officiis nam quia. Sunt repudiandae itaque, nam, et voluptate aliquam nihil nisi, excepturi facilis at veritatis. Sed ex itaque odit commodi culpa sapiente, laborum impedit ipsum hic! Necessitatibus ratione unde magnam alias neque excepturi voluptatibus repellendus sequi rem?</p>
+  `;
+  
+}
+// FINE FUNZIONI PER MOSTRARE LA DESCRIZIONE 
+
+
+const descrizione = document.getElementsByClassName('description');
 
 const selectIcon = (event)=> {
+  console.log(event);
   // raccologo  tutti gli eventi possibili nel container main
   if (event.target.className == 'icon') {
-    showselect(event.target.outerHTML); 
+    showselect(event.target.outerHTML);
+    showdes(event,iconeColorate);
 
   } else if (event.target.className == 'fas fa-arrow-left') {
     parent.innerHTML = '';
@@ -188,12 +231,17 @@ const selectIcon = (event)=> {
   } else if (event.target.className == "icon_inside"){
     let parents = event.target.parentElement;
     showselect(parents.outerHTML);
+    showdes(event,iconeColorate);
+    
   } else if (event.target.className == "container-main" || event.target.className == "description animated" ){
   } else {
     console.log(event.target);
     let parents = event.target.parentElement.parentElement;
     showselect(parents.outerHTML);
+    showdesSmall(event,iconeColorate);
+
   }
+  
   event.stopPropagation();
 }
 // Add eventListener to parent
